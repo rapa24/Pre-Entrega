@@ -27,11 +27,13 @@ Las principales herramientas y tecnologías empleadas en este proyecto son:
 
 
 ## Instalación de Dependencias
-
-1. Clonar el repositorio:
-
-`pip install -r requirements.txt
+Ejecutar el comando para instalar las librerías necesarias:
 
 ```bash
-git clone https://github.com/tu-usuario/tu-repositorio.git
-cd tu-repositorio
+pip install -r requirements.txt
+# Clonar repositorio
+
+git clone https://github.com/rapa24/Pre-Entrega.git
+cd Pre-Entrega
+``
+ 
