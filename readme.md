@@ -34,7 +34,7 @@ Ejecutar el comando para instalar las librerías necesarias:
 pip install -r requirements.txt
 # Clonar repositorio
 
-git clone https://github.com/rapa24/Pre-Entrega.git
+git clone https://github.com/rapa24/Entrega-Final.git
 cd Pre-Entrega
 ``
  
