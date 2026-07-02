@@ -23,6 +23,7 @@ Las principales herramientas y tecnologías empleadas en este proyecto son:
 - **ChromeDriver** - Driver para el navegador Google Chrome
 - **Pytest HTML** - Pra leer los reportes
 - **Git** - Controlar y gestionar cambios en los archivos
+- **Pathlib** - Libreria
 
 
 
