@@ -1,32 +1,27 @@
-from selenium import webdriver 
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
+from page.login_page import LoginPage
+from utils.logger import logger
 
 
-#login paso a paso
+# login utilizando @pytest.fixture
+def test_login_ok(driver):
+    logger.info("Iniciando el driver para el  test_login_ok")
+    login_page = LoginPage(driver)
 
-driver = webdriver.Chrome() 
-try:
-    driver.get("https://www.saucedemo.com/")
+    logger.info("ingresando los datos para las pruebas")
+    login_page.login("standard_user","secret_sauce")
 
-    #USUARIO
-    usuario = driver.find_element(By.ID,"user-name")
-    usuario.send_keys("standard_user")
-    
-    #PASS
-    password = driver.find_element(By.ID, "password")
-    password.send_keys("secret_sauce")
+    logger.info("iniciando sesion...")
 
-    #LOGIN
-    password.send_keys(Keys.RETURN) 
+    assert "/inventory.html" in driver.current_url, "No se redirige al inventario"
+    logger.info("Sesion iniciada correctamente")
 
-    #URL
-    if"/inventory.html" in driver.current_url:
-        print("Si esta en la pagina correcta")
+def test_login_invalid_password(driver):
+    login_page = LoginPage(driver)
 
-    else:
-        print("No es la pagina correcta")    
+    login_page.login("standard_user","123456")
 
-finally:
-    driver.quit()
+    error = login_page.get_error_message() 
 
+    #assert error == "hola"
+
+    assert "Epic sadface: Username and password do not match any user in this service" in error
